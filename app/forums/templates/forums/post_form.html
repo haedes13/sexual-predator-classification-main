@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    /* Custom styles for dark mode and Reddit-like colors */
+    :root {
+        --reddit-orange: #ff4500; /* Reddit's orangered color */
+        --reddit-dark: #1a1a1b; /* Reddit's dark mode background color */
+        --reddit-text: #d7dadc; /* Reddit's text color for dark mode */
+    }
+
+    body {
+        background-color: var(--reddit-dark);
+        color: var(--reddit-text);
+    }
+
+    .container {
+        background-color: var(--reddit-dark);
+        color: var(--reddit-text);
+    }
+
+    h2 {
+        color: var(--reddit-orange);
+    }
+
+    .btn-success {
+        background-color: var(--reddit-orange);
+        border-color: var(--reddit-orange);
+    }
+
+    .form-control {
+        background-color: var(--reddit-dark);
+        border-color: #6c757d; /* Bootstrap's default border color for dark inputs */
+        color: var(--reddit-text);
+    }
+
+    .form-control:focus {
+        border-color: var(--reddit-orange);
+        box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.25); /* Shadow with Reddit orange color */
+    }
+
+    .form-label {
+        color: var(--reddit-text);
+    }
+
+    textarea {
+      background-color: var(--reddit-dark);
+      border-color: #6c757d; /* Bootstrap's default border color for dark inputs */
+      color: var(--reddit-text);
+    }
+
+    input[type="text"] {
+      background-color: var(--reddit-dark);
+      border-color: #6c757d; /* Bootstrap's default border color for dark inputs */
+      color: var(--reddit-text);
+      box-shadow: none;
+      border: 1px solid #6c757d;
+    }
+
+</style>
+
+<div class="container mt-4">
+  <h2 class="mb-3">New Post</h2>
+  <form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="mb-3">
+        <div class="d-flex flex-column">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+          <div class="invalid-feedback">
+            Please provide a valid {{ field.label|lower }}.
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+{% endblock %}

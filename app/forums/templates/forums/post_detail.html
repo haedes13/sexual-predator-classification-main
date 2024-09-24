@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Custom styles for dark mode and Reddit-like colors */
+    :root {
+        --reddit-orange: #ff4500; /* Reddit's orangered color */
+        --reddit-dark: #1a1a1b; /* Reddit's dark mode background color */
+        --reddit-text: #d7dadc; /* Reddit's text color for dark mode */
+    }
+
+    body {
+        background-color: var(--reddit-dark);
+        color: var(--reddit-text);
+    }
+
+    .container {
+        background-color: var(--reddit-dark);
+        color: var(--reddit-text);
+    }
+
+    .display-4 {
+        color: var(--reddit-orange);
+    }
+
+    .lead {
+        color: var(--reddit-text);
+    }
+
+    .badge {
+        background-color: var(--reddit-orange);
+    }
+
+    .font-weight-bold {
+        color: var(--reddit-text);
+    }
+
+    .text-muted {
+        color: #6c757d; /* Bootstrap's default muted text color */
+    }
+</style>
+
+<div class="container mt-4">
+  <a href="{% url 'post-list' %}" class="btn btn-primary mb-4">Back</a>
+  <h2 class="display-4">{{ object.title }}</h2>
+  <p class="lead">{{ object.content }}</p>
+  <div class="mb-2">
+    <span class="badge bg-success">{{ post.get_post_category }}</span>
+  </div>
+  <p>Posted by <span class="font-weight-bold">{{ object.author }}</span> on <span class="text-info">{{ object.date_posted }}</span></p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <style>
+        :root {
+            --reddit-orange: #ff4500; /* Reddit's orangered color */
+            --reddit-dark: #1a1a1b; /* Reddit's dark mode background color */
+            --reddit-text: #d7dadc; /* Reddit's text color for dark mode */
+        }
+
+        body {
+            background-color: var(--reddit-dark);
+            color: var(--reddit-text);
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+            background-color: var(--reddit-dark);
+        }
+
+        .card {
+            background-color: var(--reddit-dark);
+            color: var(--reddit-text);
+        }
+
+        .card-title a {
+            color: var(--reddit-orange);
+        }
+
+        .card-title a:hover {
+            color: darken(var(--reddit-orange), 10%);
+        }
+
+        .btn-success, .btn-outline-primary {
+            background-color: var(--reddit-orange);
+            border-color: var(--reddit-orange);
+            color: white;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: darken(var(--reddit-orange), 10%);
+            border-color: darken(var(--reddit-orange), 10%);
+        }
+
+        .badge {
+            background-color: var(--reddit-orange);
+        }
+    </style>
+
+
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Threads</h1>
+            <div>
+                <a class="btn btn-success" href="post/new/">Create</a>    
+                <button class="btn btn-outline-primary" id="logout">Logout</button>    
+            </div>
+        </div>
+        {% for post in object_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ post.get_absolute_url }}" class="text-decoration-none">{{ post.title }}</a></h5>
+                    <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-0 text-info">Posted by <span class="font-weight-bold">{{ post.author }}</span> on {{ post.date_posted }}</p>
+                        <div class="mb-2">
+                            <span class="badge bg-success">{{ post.get_post_category }}</span>
+                            <!-- {% if post.get_post_category == 'non-predator' %}
+                              <span class="badge bg-success">Non-Predator</span>
+                            {% elif post.get_post_category == 'predator' %}
+                              <span class="badge bg-danger">Predator</span>    
+                            {% else %}
+                               <span class="badge bg-warning">Warning</span> -->
+                            {% endif %} 
+                          </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function() {
+            fetch('/logout/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            }).then(function(response) {
+                if (response.ok) {
+                    window.location.href = '/login';
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
