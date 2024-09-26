@@ -6,6 +6,8 @@ My findings reveal that while the Random Forest method exhibits promise with a h
 Through the detection and mitigation of sexual predators' activities on the dark web, this study demonstrates the potential of machine learning algorithms to improve online safety. The knowledge gathered from this study may play a key role in creating more advanced instruments to counteract online sexual predation for law enforcement and cybersecurity experts.
 
 
-Keywords: Dark web, Sexual Abuse Material(SAM) , Multinomial, SVM, Random Forest, Decision Tree, PAN12 Dataset, Confusion Matrix, Cyber Security, Law Enforcement.
-![Screenshot](sexual-predator-classification-main/Screenshot 2024-09-26 220205.png)
+Keywords: Dark web, Sexual Abuse Material(SAM) , Multinomial, SVM, Random Forest, Decision Tree, PAN12 Dataset, Confusion Matrix, Cyber Security, Law Enforcement.![Screenshot 2024-09-26 220205](https://github.com/user-attachments/assets/6f41aaf8-b3e5-4b80-b07c-407c1b0003bc)
+
+
+
 
