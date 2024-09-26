@@ -8,6 +8,8 @@ Through the detection and mitigation of sexual predators' activities on the dark
 
 Keywords: Dark web, Sexual Abuse Material(SAM) , Multinomial, SVM, Random Forest, Decision Tree, PAN12 Dataset, Confusion Matrix, Cyber Security, Law Enforcement.![Screenshot 2024-09-26 220205](https://github.com/user-attachments/assets/6f41aaf8-b3e5-4b80-b07c-407c1b0003bc)![Screenshot 11](https://github.com/user-attachments/assets/d4c64d05-1f8c-4959-b32e-55d72d26b625)
 # Results of the Predator Classification
+![Screenshot 12](https://github.com/user-attachments/assets/c00c42cc-e461-424a-a37d-f494fdb10c49)
+
 ![Screenshot 13](https://github.com/user-attachments/assets/9dcd3231-cd21-4263-913a-e9a41afc4dca)
 
 
